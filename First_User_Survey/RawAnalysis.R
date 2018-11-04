@@ -4,10 +4,17 @@
 require(tidyverse)
 require(readxl)
 
-dataDir<-"L:/SWMP_Stuff/Individual/CSV"
-datFile <- read.csv2(paste(dataDir,"SWMP Status Report Initial Use.csv",sep = "/"),header = TRUE,sep = ",")
+dataDrive<-"D:"
+dataDir<-"SWMP_Stuff/Individual"
+df <- read_xlsx(paste(dataDrive,dataDir,"Excel/SWMP Status Report Initial Use.xlsx",sep = "/"))
+#head(df)
+df <- (df[-1,])
+df <- df[-c(2:9,12,14,16,18:20)]
+var_names <- c("ID","Sector","Used_Report","Updated_Report","Software_Rating","Process_Rating" )
 
-dataDir<-"L:/SWMP_Stuff/Individual/Excel"
-datXFile <- read_xlsx(paste(dataDir,"SWMP Status Report Initial UseMOD.xlsx",sep = "/"))
-summarise(datFile)
-df <- tibble(datXFile)
+names(df) <- var_names
+for(i in 1:6) {
+  df[i] <- as.factor(df[i])
+  }
+levels(df$Sector)
+df
