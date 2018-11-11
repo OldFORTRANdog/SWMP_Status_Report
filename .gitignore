@@ -35,3 +35,8 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 .Rproj.user
+First_User_Survey/CSV/CollectorList.csv
+First_User_Survey/Excel/CollectorList.xlsx
+First_User_Survey/Process.png
+First_User_Survey/READ_ME.txt
+*.png
