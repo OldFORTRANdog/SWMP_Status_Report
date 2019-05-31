@@ -38,6 +38,25 @@ df %>%
   ggplot(aes(factor(Sector))) %>%
   + geom_bar(aes(fill = factor(Updated_Report)))
 
+numUsed <- df %>%
+  filter(Used_Report == "Yes") %>%
+  count()
+
+numUpdated <- df %>%
+  filter(Updated_Report == "Yes") %>%
+  count()
+numUpdated
+
+updateNoUse <-  df %>%
+  filter(Used_Report == "No" & Updated_Report == "Yes") 
+
+useNoUpdate <-  df %>%
+  filter(Used_Report == "Yes" & Updated_Report == "No") 
+
+useAndUpdate <-  df %>%
+  filter(Used_Report == "Yes" & Updated_Report == "Yes") 
+
+
 df %>%
   filter(Updated_Report == "Yes") %>%
   ggplot(aes(factor(Sector))) %>%
